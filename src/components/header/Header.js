@@ -5,7 +5,7 @@ const Header = (props) => {
   return (
     <header data-test='header'>
       <div className='wrapper'>
-        <div data-test='logo'>
+        <div data-test='logo' className='logo'>
           <h1>My Logo</h1>
         </div>
       </div>
