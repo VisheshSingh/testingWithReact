@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Headline from './Headline';
 import { findByTestAttr } from '../../../utils';
+import checkPropTypes from 'check-prop-types';
 
 const setup = (props = {}) => {
   const component = shallow(<Headline {...props} />);
@@ -36,7 +37,7 @@ describe('Headline component', () => {
     });
   });
 
-  describe('render Headline without props', () => {
+  describe('Render Headline with props', () => {
     let component;
     beforeEach(() => {
       component = setup();
@@ -55,6 +56,25 @@ describe('Headline component', () => {
     test('should not have p', () => {
       const wrapper = findByTestAttr(component, 'description');
       expect(wrapper.length).toBe(0);
+    });
+  });
+
+  describe('Headline props in action', () => {
+    test('Should render props without warnings', () => {
+      const expectedProps = {
+        fName: 'Test fName',
+        lName: 'Test lName',
+        email: 'test@gmail.com',
+        age: 10,
+        onlineStatus: false,
+      };
+      const propErr = checkPropTypes(
+        Headline.props,
+        expectedProps,
+        'props',
+        Headline.name
+      );
+      expect(propErr).toBeUndefined();
     });
   });
 });
