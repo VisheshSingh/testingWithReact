@@ -13,7 +13,10 @@ describe('Posts Reducer', () => {
       { title: 'Title 2' },
       { title: 'Title 3' },
     ];
-    const newState = postsReducer(posts, { type: types.GET_POSTS });
+    const newState = postsReducer(undefined, {
+      type: types.GET_POSTS,
+      payload: posts,
+    });
     expect(newState).toEqual(posts);
   });
 });
