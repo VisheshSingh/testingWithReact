@@ -36,7 +36,7 @@ describe('Headline component', () => {
     });
   });
 
-  describe('Render Headline with props', () => {
+  describe('Render Headline without props', () => {
     let component;
     beforeEach(() => {
       component = setup();
@@ -58,7 +58,7 @@ describe('Headline component', () => {
     });
   });
 
-  describe('Headline props in action', () => {
+  describe('Headline check propTypes', () => {
     test('Should render props without warnings', () => {
       const expectedProps = {
         fName: 'Test fName',
