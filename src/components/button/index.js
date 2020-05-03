@@ -7,8 +7,18 @@ export class SharedButton extends Component {
     emitEvent: PropTypes.func,
   };
 
+  submitEvent = () => {
+    if (this.props.emitEvent) {
+      this.props.emitEvent();
+    }
+  };
+
   render() {
-    return <button></button>;
+    return (
+      <button data-test='btnComp' onClick={this.submitEvent}>
+        {this.props.buttonText}
+      </button>
+    );
   }
 }
 
