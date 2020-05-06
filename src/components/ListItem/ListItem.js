@@ -9,6 +9,7 @@ export class ListItem extends Component {
 
   render() {
     const { title, desc } = this.props;
+
     if (!title) {
       return null;
     }

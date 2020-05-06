@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
+import './button.scss';
 export class SharedButton extends Component {
   static propTypes = {
     buttonText: PropTypes.string,
