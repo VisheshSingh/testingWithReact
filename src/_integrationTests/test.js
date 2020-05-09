@@ -29,10 +29,12 @@ describe('fetch posts action', () => {
 
     const store = testStore();
 
-    const request = moxios.requests.mostRecent();
-    request.respondWith({
-      status: 202,
-      response: expectedState,
+    moxios.wait(() => {
+      const request = moxios.requests.mostRecent();
+      request.respondWith({
+        status: 202,
+        response: expectedState,
+      });
     });
 
     return store.dispatch(fetchPost()).then(() => {
